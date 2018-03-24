@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#111">
+    <title>Bus companion</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" type='text/css'>
+    <link rel="manifest" href="{% static 'json/manifest.json' %}">
+    <script src="{% static 'js/app.js' %}"></script>
+
+</head>
+<body>
+        <div id="mySidenav" class="sidenav">
+                
+                <a href="#">Booking</a>
+                <a href="#">Track your ride</a>
+                <a href="#">Feedback</a>
+                <a href="#">Media Access</a>
+              </div>
+    <header class="header">
+            <span style="font-size:20px;cursor:pointer; margin:0; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);" onclick="openNav()" id="nav">&#9776;</span>
+        <h1 class="header_title"> Bus companion</h1>
+        <button id="butRefresh" class="headerButton" aria-label="Refresh" onclick="butRefresh()"></button>
+    </header>
+    <main class='main'>
+        <div id="container">
+            <h2>
+                Book your Ride
+            </h2>
+            <form id="bookingForm" action="results" onsubmit="return validateForm()" method="POST">
+                {% csrf_token %}
+                <label>To: </label>
+                <input id="currentCity" type="text" placeholder="Enter current city" name="To"><br>
+                <label for="">From: </label>
+                <input id="destinationCity" type="text" placeholder="Enter destination city" name="From"><br>
+                <label>Date</label>
+                <input type="date" name="date">
+                <input type="submit" value="Search!" id="submitButton">
+                
+            </form>
+        </div>
+    </main>
+
+    
+</body>
+</html>

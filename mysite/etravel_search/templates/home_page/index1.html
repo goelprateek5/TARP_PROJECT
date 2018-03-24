@@ -1,0 +1,5 @@
+<ul>
+    {% for buses in all_buses %}
+    <li><a href="/etravel_search/{{buses.id}}">{{buses.bus_name}}</a></li>
+    {% endfor %}
+</ul>

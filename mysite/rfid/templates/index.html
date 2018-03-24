@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>RFID Access</title>
+<script>
+    function myFunction() {
+        location.reload();
+    }
+    window.onload = function() {
+  myFunction();
+};
+</script>
+</head>
+<body>
+<center>
+<br><br>
+<h1><strong><u>Touch Bus Card To Enter!</u></strong></h1>
+<br><br>
+<div style="border:2px solid black;height:30%;width:50%">
+<h1>Welcome Mr. {{U}}</h1>
+{% if S == "Access Granted" %}
+<h1 style="color:green;">{{S}}</h1>
+{% endif %}
+{% if S != "Access Granted" %}
+<h1 style="color:red;">{{S}}</h1>
+{% endif %}
+</div>
+</center>
+</body>
+</html>
