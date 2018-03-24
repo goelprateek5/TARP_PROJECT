@@ -130,9 +130,9 @@
 #container {
     margin: auto;
     width: 75%;
-    height: 500px;
-    padding: 5%;
+    padding: 1%;
     margin-top: 5%;
+    border:2px solid black;
     
 }
 input[type=text],[type=date]{
@@ -223,7 +223,7 @@ input[type=submit]:hover {
 
 
 .mediaAcc{
-    background-image: url('1.jpg');
+    background-image: url('../images/media/images/1.jpg');
     background-size: cover;
     background-size: contain;
 }

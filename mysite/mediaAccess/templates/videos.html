@@ -10,11 +10,28 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" type='text/css'>
     <link rel="manifest" href="{% static 'json/manifest.json' %}">
     <script src="{% static 'js/app.js' %}"></script>
+    <!--<script src="{% static 'js/change.js' %}"></script>
+    -->
+    <script>
+            function openwindow(path){
+            var v=document.getElementById("videoPlayer")
+            var s=document.getElementById("myvideo");
+            var d=document.getElementById("show");
+            d.style.height="75%";
+            d.style.width="75%";
+            s.src=path;
+            v.pause();
+            v.currentTime=0;
+            v.load();
+            }
+            
+    </script>
 
 </head>
 <style type="text/css">
  
 </style>
+
 <body>
         <div id="mySidenav" class="sidenav">
                 
@@ -26,26 +43,34 @@
     <header class="header">
             <span style="font-size:20px;cursor:pointer; margin:0; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);" onclick="openNav()" id="nav">&#9776;</span>
         <h1 class="header_title"> Bus companion</h1>
-        <button id="butRefresh" class="headerButton" aria-label="Refresh" onclick="butRefresh()"></button>
+        <button id="butRefresh" class="headerButton" aria-label="Refresh" onclick="butRefresh()" type="button"></button>
     </header>
     <main class='main'>
         <div id="container">
             {% if v %} 
+            <h2>Movies!</h2>
                 <ul>
                     {% for video in v %}
 
                         <!-- <li><a href="{{video.media}}">{{video.media}}</a></li> -->
-                        <video>
-                            <source src="{{video.media}}" type="video/mp4">
-                        </video>
+                        
+                        <li><h3><a href="#" id={{video.media}} onclick=openwindow(id)>{{video.name}}</a></h3></li>
                     {% endfor %}
+                </ul>
             {% else %}
-
-            <h3>No albums found</h3>
-
+                <h3>No albums found</h3>
             {% endif %}
-
+        </div>  
+        <center>   
+        <div style="height:0%;width:0%;background-color:black;display:inline-block;margin-top:2%;" id="show">
+            <video height="100%" width="100%" preload="none" controls id="videoPlayer">
+                <source id="myvideo" type="video/mp4">
+            </video>
         </div>
+        </center>
+                    
+                
+            
     </main>
 
     
