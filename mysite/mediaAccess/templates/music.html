@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#111">
+    <title>Media Access</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" type='text/css'>
+    <link rel="manifest" href="{% static 'json/manifest.json' %}">
+    <script src="{% static 'js/app.js' %}"></script>
+    <!--<script src="{% static 'js/change.js' %}"></script>
+    -->
+    <script>
+            function openwindow(path){
+            var v=document.getElementById("audioPlayer")
+            var s=document.getElementById("myaudio");
+            var d=document.getElementById("show");
+            d.style.height="75%";
+            d.style.width="75%";
+            d.style.display="inline-block";
+            s.src=path;
+            v.pause();
+            v.currentTime=0;
+            v.load();
+            v.play();
+            }
+            
+    </script>
+
+</head>
+<style type="text/css">
+ 
+</style>
+
+<body>
+        <div id="mySidenav" class="sidenav">
+                
+                <a href="/../">Booking</a>
+                <a href="#">Track your ride</a>
+                <a href="#">Feedback</a>
+                <a href="../media">Media Access</a>
+              </div>
+    <header class="header">
+            <span style="font-size:20px;cursor:pointer; margin:0; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);" onclick="openNav()" id="nav">&#9776;</span>
+        <h1 class="header_title"> Bus companion</h1>
+        <button id="butRefresh" class="headerButton" aria-label="Refresh" onclick="butRefresh()" type="button"></button>
+    </header>
+    <main class='main'>
+        <div id="container">
+            {% if m %} 
+            <h2>Songs!</h2>
+                <ul>
+                    {% for music in m %}
+
+                        <!-- <li><a href="{{video.media}}">{{video.media}}</a></li> -->
+                        
+                        <li><h3><a href="#" id={{music.media}} onclick=openwindow(id)>{{music.name}}</a></h3></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h3>No albums found</h3>
+            {% endif %}
+        </div>  
+        <center>   
+        <div style="height:0%;width:0%;background-color:black;display:none;margin-top:2%;" id="show">
+            <audio height="100%" width="100%" preload="none" controls id="audioPlayer">
+                <source id="myaudio" type="audio/mp3">
+                </audio>
+        </div>
+        </center>
+                    
+                
+            
+    </main>
+
+    
+</body>
+</html>
