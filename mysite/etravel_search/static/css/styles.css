@@ -133,6 +133,7 @@
     padding: 1%;
     margin-top: 5%;
     border:2px solid black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     
 
 }
@@ -234,9 +235,13 @@ input[type=submit]:hover {
 
 
 .mediaAcc{
-    height: 20%;
-    width: 20%;
-    background-image: url('../images/media/images/1.jpg');
-    background-size: cover;
-    background-size: contain;
+    width:200px;
+    height:120px;
+    margin-left: 100px;
+    margin-top: 120px;
+    background-repeat:no-repeat;
+    background-size:cover;
+    font-family: Cambria;
+    color:black;
+    font-size: 14px;
 }
