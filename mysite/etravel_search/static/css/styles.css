@@ -134,6 +134,17 @@
     margin-top: 5%;
     border:2px solid black;
     
+
+}
+
+#container1 {
+    margin: auto;
+    width: 75%;
+    height: 75%;
+    padding: 1%;
+    margin-top: 5%;
+    
+
 }
 input[type=text],[type=date]{
     padding: 7px;
@@ -223,6 +234,8 @@ input[type=submit]:hover {
 
 
 .mediaAcc{
+    height: 20%;
+    width: 20%;
     background-image: url('../images/media/images/1.jpg');
     background-size: cover;
     background-size: contain;
