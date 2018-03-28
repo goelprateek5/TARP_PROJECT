@@ -29,18 +29,18 @@ def save_req(request):
 
         if(S.is_valid()):
             S.save()
-    return redirect('https://bus.makemytrip.com/bus/search/'+S_f+'/'+S_t+'/'+S_d)
+    # return redirect('https://bus.makemytrip.com/bus/search/'+S_f+'/'+S_t+'/'+S_d)
 
-    # C=Cost.objects.filter(From_city=S_f).filter(To_city=S_t)
-    # for c in C:
-    #     G=Bus.objects.filter(J_ID=c.J_ID)
+    C=Cost.objects.filter(From_city=S_f).filter(To_city=S_t)
+    for c in C:
+        G=Bus.objects.filter(J_ID=c.J_ID)
                     
     
-    # context={
-    #     'G':G,
-    # }
+    context={
+        'G':G,
+    }
 
-    # return render(request,'home_page/booking.html',context)
+    return render(request,'home_page/booking.html',context)
 
 
 

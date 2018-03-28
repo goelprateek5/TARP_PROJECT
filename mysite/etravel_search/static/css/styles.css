@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box; }
   
@@ -15,8 +16,7 @@
     
 }
   
-  html {
-    overflow: hidden; }
+html { overflow-y: scroll; }
   
   body {
     display: -webkit-box;
@@ -51,7 +51,7 @@
     height: 56px;
     color: #FFF;
     background: #3F51B5;
-    position: fixed;
+    position: relative;
     font-size: 20px;
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
     padding: 16px 16px 0 16px;
@@ -99,11 +99,12 @@
     .header #butRefresh {
       -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
       background-image: url('ic_refresh_white_24px.svg');
-      background-color: #3F51B5;
+      background-color:#3F51B5; 
+      
     }
       .header_title {
-        margin-left: 10px;
-        margin-top: 2px;
+          left: 4%;
+          margin:0;
         font-weight: 250;
         font-size: 20px;
         -webkit-box-flex: 1;
@@ -112,6 +113,7 @@
                 flex: 1; 
         position: relative;
             }
+
 .main {
     padding-top: 60px;
     -webkit-box-flex: 1;
@@ -132,22 +134,10 @@
 #container {
     margin: auto;
     width: 75%;
-    padding: 1%;
-    margin-top: 5%;
-    border:2px solid black;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    
-
-}
-
-#container1 {
-    margin: auto;
-    width: 75%;
-    height: 75%;
-    padding: 1%;
+    height: 500px;
+    padding: 5%;
     margin-top: 5%;
     
-
 }
 input[type=text],[type=date]{
     padding: 7px;
@@ -198,12 +188,12 @@ input[type=submit]:hover {
 
 .sidenav a {
     padding: 8px 8px 8px 32px;
+    width: 200px;
     margin-top: 5%;
     text-decoration: none;
     font-size: 20px;
     color: #fff;
     display: block;
-    transition: 0.3s;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
@@ -224,16 +214,49 @@ input[type=submit]:hover {
     outline: 0 !important;
 }
 
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+  }
+#distance{
+    display: inline-block;
+    margin-left: 20%;
+    margin-bottom: 10%;
+    width: 25%;
+    margin-top: 5%;
+
+}
+#reachDest{
+    display: inline-block;
+    margin-bottom: 10%;
+    vertical-align: top;
+    margin-top: 5%;
+    margin-left: 40px;
+    
+}
+#map {
+    height: 400px;
+    width: 70%;
+    margin-left: 15%;
+   }
+   
 @media(max-width:400px){
     label, input[type=text],[type=date]{
         width: 100%;
         margin: auto;
     }
     input[type=submit]{
-        margin: auto;
+        top: 20px;
+        position: relative;
     }
 
 }
+
 
 
 .mediaAcc{

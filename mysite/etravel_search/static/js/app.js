@@ -70,7 +70,7 @@ window.addEventListener('load', async e =>{
 
 });
 
-//MAP
+
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -83,6 +83,8 @@ function initMap() {
     var onChangeHandler = function() {
       calculateAndDisplayRoute(directionsService, directionsDisplay);
     };
+    document.getElementById('start').addEventListener('change', onChangeHandler);
+    document.getElementById('end').addEventListener('change', onChangeHandler);
   }
   var start = '28.6468931,76.9528361';
   var end = '27.176157,77.9098013';
