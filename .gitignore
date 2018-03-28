@@ -1,1 +1,12 @@
-
+mysite/etravel_search/__pycache__/
+mysite/etravel_search/migrations/__pycache__/
+mysite/etravel_search/static/images/media/books/
+mysite/etravel_search/static/images/media/songs/
+mysite/etravel_search/static/images/media/videos/
+mysite/location/__pycache__/
+mysite/location/migrations/__pycache__/
+mysite/mediaAccess/__pycache__/
+mysite/mediaAccess/migrations/__pycache__/
+mysite/mysite/__pycache__/
+mysite/rfid/__pycache__/
+mysite/rfid/migrations/__pycache__/
