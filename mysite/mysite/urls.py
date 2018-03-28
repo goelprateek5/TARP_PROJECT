@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^rfid/', include('rfid.urls')),
     url(r'^', include('etravel_search.urls')),
     url(r'^media/', include('mediaAccess.urls')),
+    url(r'^location/', include('location.urls')),
 ]

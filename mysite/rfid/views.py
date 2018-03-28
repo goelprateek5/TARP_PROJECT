@@ -21,7 +21,7 @@ def Ard(I):
 
 
 def index(request):
-    template=loader.get_template('index.html')
+    template=loader.get_template('index1.html')
     J_ID=1 #different for every bus
     l=User_Journey.objects.all()
     C=Cost.objects.all()
