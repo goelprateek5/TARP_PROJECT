@@ -10,8 +10,15 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" type='text/css'>
     <link rel="manifest" href="{% static 'json/manifest.json' %}">
     <script src="{% static 'js/app.js' %}"></script>
-
+    <script>
+    function get_BID(id){
+        var val=document.getElementById(id).value;
+        document.getElementById("busid").value=val;
+        alert(val);
+    }
+    </script>
 </head>
+
 <body>
         <div id="mySidenav" class="sidenav">
                 
@@ -30,7 +37,7 @@
             <h2>
                 Book your Ride
             </h2>
-            <form id="bookingForm" action="results" onsubmit="return validateForm()" method="POST">
+            <form id="bookingForm" onsubmit="return validateForm()" method="POST">
                 {% csrf_token %}
                 <label>From: </label>
                 <input id="currentCity" type="text" placeholder="Enter current city" name="From"><br>
@@ -42,8 +49,21 @@
                 
             </form>
         </div>
-    </main>
-
-    
+        <div id="buslist" style="display:block;">
+            <p>
+                
+                    {% for i in G %}
+                    <input type="radio" id="{{i.id}}" onclick="get_BID(id)" name="bus_sel" value="{{i.id}}">{{i.bus_name}} {{i.bus_type}} {{i.dep_time}} {{i.arr_time}} {{i.travel_time}} {{i.ratings}} {{i.seats}} {{i.price}}
+                    {% endfor %}
+                    <form method="POST" action="confirmbook" id="bookticket">
+                        <input type="text" name="rfid">
+                        <input type="Text" name="busid" id="busid" style="display:none;">
+                        <input type="submit" value="Book Now" name="{{i.id}}"/>
+                    </form>
+                    
+                
+            </p>
+        </div>
+    </main>    
 </body>
 </html>

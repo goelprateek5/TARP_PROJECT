@@ -1,11 +1,6 @@
 from django.db import models
 
-class Search(models.Model):
-    From=models.CharField(max_length=200)
-    To=models.CharField(max_length=200)
-    date=models.CharField(max_length=200)
-    def __str__(self):
-        return str(self.To)+' '+str(self.From)+' '+str(self.date)
+
 
 class Bus(models.Model):
     bus_name=models.CharField(max_length=250)
@@ -33,7 +28,9 @@ class User_Journey(models.Model):
 class Passenger(models.Model):
     User_id=models.CharField(max_length=10)
     User_name=models.CharField(max_length=50)
+    Phone_number=models.CharField(max_length=50)
     Credit=models.CharField(max_length=8)
 
     def __str__(self):
-        return str(self.User_id)+' '+str(self.User_name)+' '+str(self.Credit)
+        return str(self.User_id)+' '+str(self.User_name)+' '+str(self.Phone_number)+' '+str(self.Credit)
+

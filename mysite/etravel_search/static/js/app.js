@@ -16,8 +16,10 @@ function validateForm(){
         console.log("Please enter city");
         return false;
     }
-
+    document.getElementById('buslist').style.display=block;
 }
+
+
 function butRefresh(){
     location.reload();
 

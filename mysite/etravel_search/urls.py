@@ -4,7 +4,8 @@ from django.views.generic import TemplateView
 urlpatterns=[
     url(r'^$', views.index, name='index'),
 
-    url(r'^results$', views.save_req, name='save_req'),
+    #url(r'^results$', views.save_req, name='save_req'),
+    url(r'^confirmbook$', views.confirm, name='confirm'),
 
     
     url(r'^service-worker.js', (TemplateView.as_view(

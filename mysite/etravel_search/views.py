@@ -1,47 +1,58 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.template import loader
-from .models import Bus,Search
+from .models import Bus,Passenger,User_Journey
 from rfid.models import Cost
-from .forms import SearchForm
 from datetime import datetime
 
-# Create your views here.
+
+
+
+
+
 def index(request):
     all_buses=Bus.objects.all()
     template=loader.get_template('home_page/index.html')
-    context={
-        'all_buses':all_buses,
-    }
-    #return render(request, 'home_page/home.html')
-    return HttpResponse(template.render(context,request))
-
-
-
-def save_req(request):
+    G=Bus.objects.all().filter(J_ID='ads')
     if request.method=='POST':
-        S=SearchForm(request.POST)
         S_t=request.POST['To']
         S_f=request.POST['From']
         S_d=request.POST['date']
         dt_obj=datetime.strptime(S_d,'%Y-%m-%d').date()
         S_d=dt_obj.strftime('%d-%m-%Y')
 
-        if(S.is_valid()):
-            S.save()
+        
     # return redirect('https://bus.makemytrip.com/bus/search/'+S_f+'/'+S_t+'/'+S_d)
 
-    C=Cost.objects.filter(From_city=S_f).filter(To_city=S_t)
-    for c in C:
-        G=Bus.objects.filter(J_ID=c.J_ID)
+        C=Cost.objects.filter(From_city=S_f).filter(To_city=S_t)
+        for c in C:
+            G=Bus.objects.filter(J_ID=c.J_ID)
                     
     
+    
     context={
+        'all_buses':all_buses,
         'G':G,
     }
-
-    return render(request,'home_page/booking.html',context)
-
-
+    #return render(request, 'home_page/home.html')
+    return HttpResponse(template.render(context,request))
 
 
+
+
+
+
+def confirm(request):
+    S=request.POST.get('busid',"")
+    R=request.POST.get('rfid',"")
+    context={
+        'S':S,
+        'R':R,
+    }
+
+    User=User_Journey()
+    User.Journey_id=S
+    User.User_id=R
+    User.Session_id=False
+    User.save()
+    return render(request,'home_page/book.html',context)
