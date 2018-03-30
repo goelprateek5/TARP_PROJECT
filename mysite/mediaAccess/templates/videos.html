@@ -27,6 +27,15 @@
             }
             
     </script>
+    <style>
+
+a { 
+    color: inherit; 
+    text-decoration: none;
+
+} 
+    
+    </style>
 
 </head>
 <style type="text/css">
@@ -47,7 +56,7 @@
         <button id="butRefresh" class="headerButton" aria-label="Refresh" onclick="butRefresh()" type="button"></button>
     </header>
     <main class='main'>
-        <div id="container">
+        <div id="container" style="color:rgb(235, 232, 192);">
             {% if v %} 
             <h2>Movies!</h2>
                 <ul>
@@ -55,7 +64,7 @@
 
                         <!-- <li><a href="{{video.media}}">{{video.media}}</a></li> -->
                         
-                        <li><h3><a href="#" id={{video.media}} onclick=openwindow(id)>{{video.name}}</a></h3></li>
+                        <li><h3><a href="#show" id={{video.media}} onclick=openwindow(id)>{{video.name}}</a></h3></li>
                     {% endfor %}
                 </ul>
             {% else %}

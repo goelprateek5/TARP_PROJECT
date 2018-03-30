@@ -137,6 +137,8 @@ html { overflow-y: scroll; }
     height: 500px;
     padding: 5%;
     margin-top: 5%;
+    background-color:rgba(63, 81, 181, 0.4);
+    border:2px solid rgb(16, 0, 61);
     
 }
 input[type=text],[type=date]{
@@ -268,5 +270,6 @@ input[type=submit]:hover {
     background-size:cover;
     font-family: Cambria;
     color:black;
-    font-size: 14px;
+    font-size: 20px;
 }
+

@@ -14,9 +14,23 @@
     function get_BID(id){
         var val=document.getElementById(id).value;
         document.getElementById("busid").value=val;
-        alert(val);
     }
+
     </script>
+    <style>
+        td{
+            border:2px solid black;
+            text-align:center;
+            padding:5px;
+        }
+        th{
+            border:2px solid black;
+            text-align:center;
+            padding:5px;
+            text-decoration: underline;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -49,19 +63,49 @@
                 
             </form>
         </div>
-        <div id="buslist" style="display:block;">
+        <div id="buslist" style="display:block;background-color:rgba(243, 242, 164, 0.6);">
             <p>
-                
+                {% if G %}
+                <h3>Results!</h3>
+                <table style="border:1px solid black;" align="center">
+                    <tr>
+                        <th>Bus Name</th>
+                        <th>Bus Type</th>
+                        <th>Departure Time</th>
+                        <th>Arrival Time</th>
+                        <th>Travel Time</th>
+                        <th>Ratings</th>
+                        <th>Seats</th>
+                        <th>Price</th>
+                        <th>Book</th>
+                    </tr>
                     {% for i in G %}
-                    <input type="radio" id="{{i.id}}" onclick="get_BID(id)" name="bus_sel" value="{{i.id}}">{{i.bus_name}} {{i.bus_type}} {{i.dep_time}} {{i.arr_time}} {{i.travel_time}} {{i.ratings}} {{i.seats}} {{i.price}}
+                    <tr><td>{{i.bus_name}}</td>
+                        <td>{{i.bus_type}}</td>
+                        <td>{{i.dep_time}}</td>
+                        <td>{{i.arr_time}}</td> 
+                        <td>{{i.travel_time}}</td> 
+                        <td>{{i.ratings}}</td> 
+                        <td>{{i.seats}}</td> 
+                        <td>{{i.price}}</td>
+                        <td><input type="radio" id="{{i.id}}" onclick="get_BID(id)" name="bus_sel" value="{{i.id}}"></td>
+                    </tr>
                     {% endfor %}
+                </table>
+                    {% if G|length != 0 %}
+                    <center>
+                        <div>
                     <form method="POST" action="confirmbook" id="bookticket">
-                        <input type="text" name="rfid">
                         <input type="Text" name="busid" id="busid" style="display:none;">
-                        <input type="submit" value="Book Now" name="{{i.id}}"/>
+                        <input type="text" name="rfid" style="float:left;width:50%;margin-left:10%;" placeholder="Enter your RFID">
+                        <input type="submit" value="Book Now" name="{{i.id}}" style="width:17%;"/>
+                        <br>
                     </form>
+                    </div>
+                    </center>
+                    {% endif %}
                     
-                
+                {% endif %}
             </p>
         </div>
     </main>    

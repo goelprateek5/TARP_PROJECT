@@ -45,9 +45,11 @@ def index(request):
 def confirm(request):
     S=request.POST.get('busid',"")
     R=request.POST.get('rfid',"")
+    alert=True
     context={
         'S':S,
         'R':R,
+        'alert':alert,
     }
 
     User=User_Journey()
