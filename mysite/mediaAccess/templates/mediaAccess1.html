@@ -13,7 +13,6 @@
 
 </head>
 <style type="text/css">
-
 	
 .mediaAcc{
     height: 100%;
@@ -22,10 +21,6 @@
     border-radius: 7px;
     display: inline-block;
     margin-left: 10%;
-}
-
-td{
-    padding-right: 60px;
 }
 </style>
 <body>
@@ -42,24 +37,11 @@ td{
         <button id="butRefresh" class="headerButton" aria-label="Refresh" onclick="butRefresh()"></button>
     </header>
     <main class='main'>
-        <center>
         <div id="container1" style="height:60%;">
-                <table>
-                    <tr>
-                        <td><a href="videos"><img src="../../static/images/media/images/movie.png" height=110 width="110" ></a></td>
-                        <td><a href="music"><img src="../../static/images/media/images/music.png" height=110 width="110" ></a></td>
-                        <td><a href="books"><img src="../../static/images/media/images/book.png" height=110 width="110" ></a></td>
-                    </tr>
-                    <tr>
-                        <td><center><a href="videos" style="text-decoration: none;color: inherit;font-size: 20px;">Movies</a></center></td>
-                        <td><center><a href="music" style="text-decoration: none;color: inherit;font-size: 20px;">Music</a></center></td>
-                        <td><center><a href="books" style="text-decoration: none;color: inherit;font-size: 20px;">Books</a></center></td>
-                    </tr>
-
-                </table>
-
+            <a href="videos"><div class="mediaAcc" id="videos" style="background-image: url('../../static/images/media/images/Movies.jpg');"><h2>Movies!</h2></div></a>
+            <a href="music"><div class="mediaAcc" id="music" style="background-image: url('../../static/images/media/images/songs.jpg');"><h2>Music!</h2></div></a>
+            <a href="books"><div class="mediaAcc" id="books" style="background-image: url('../../static/images/media/images/books.jpg');"><h2>Books!</h2></div></a>
         </div>
-    </center>
     </main>
 
     
