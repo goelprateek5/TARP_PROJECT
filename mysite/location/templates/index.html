@@ -1,5 +1,5 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (p) {
         var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
@@ -8,13 +8,7 @@ if (navigator.geolocation) {
             zoom: 13,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        // var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
-        // var marker = new google.maps.Marker({
-        //     position: LatLng,
-        //     map: map,
-        //     title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
-        // });
-                    alert(p.coords.latitude+'   '+p.coords.longitude);
+        alert(p.coords.latitude+'   '+p.coords.longitude);
 
         google.maps.event.addListener(marker, "click", function (e) {
             var infoWindow = new google.maps.InfoWindow();
@@ -25,6 +19,28 @@ if (navigator.geolocation) {
 } else {
     alert('Geo Location feature is not supported in this browser.');
 }
+</script> -->
+
+<script type="text/javascript">
+var directionsService = new google.maps.DirectionsService();
+
+var request = {
+  origin      : '28.6468931,76.9528361', // a city, full address, landmark etc
+  destination : 'Vellore India',
+  travelMode  : google.maps.DirectionsTravelMode.DRIVING
+};
+
+directionsService.route(request, function(response, status) {
+  if ( status == google.maps.DirectionsStatus.OK ) {
+    alert( (response.routes[0].legs[0].distance.value)/1000+' km' ); // the distance in metres
+  }
+  else {
+    // oops, there's no route between these two locations
+    // every time this happens, a kitten dies
+    // so please, ensure your address is formatted properly
+  }
+});
 </script>
+
 <div id="dvMap" style="width: 500px; height: 500px">
 </div>

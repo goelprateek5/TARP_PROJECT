@@ -42,7 +42,9 @@ html { overflow-y: scroll; }
     -webkit-align-content: stretch;
         -ms-flex-line-pack: stretch;
             align-content: stretch;
-    background: #ececec;
+    background: url('bg-min.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     
 }
   
@@ -137,8 +139,7 @@ html { overflow-y: scroll; }
     height: 500px;
     padding: 5%;
     margin-top: 5%;
-    background-color:rgba(63, 81, 181, 0.4);
-    border:2px solid rgb(16, 0, 61);
+    /*border:2px solid rgb(16, 0, 61);*/
     
 }
 input[type=text],[type=date]{
