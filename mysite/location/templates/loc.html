@@ -103,7 +103,7 @@ var b='{{t}} India';
               if ( status == google.maps.DirectionsStatus.OK ) {
                 window.distance1 = (response.routes[0].legs[0].distance.value)/1000
                 var min1 = (Number((distance1/60)%1)*60).toFixed(0)
-                document.getElementById('Dist1').innerHTML=(Number(distance1.toFixed(2))+' km' ); // the distance in metres
+                document.getElementById('Dist1').innerHTML=(Number(distance1.toFixed(2))+' km left' ); // the distance in metres
                 document.getElementById('time1').innerHTML=(Math.floor(distance1/60)+' hr. '+min1+' min. remaining' );
               }
               else {
