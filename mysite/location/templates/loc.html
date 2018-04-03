@@ -6,7 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Track your ride</title>
     <meta name="theme-color" content="#111">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Pure CSS Progress Bars">
+    <meta name="keywords" content="css, html, progress bar">
+
     {% load staticfiles %}
+    
+    <link rel="stylesheet" href='{% static "css/assets/css/cssprogress.css" %}'>
+    <link rel="stylesheet" href='{% static "css/assets/css/style.css" %}'>
+    <link rel="stylesheet" href='{% static "css/assets/fonts/font-awesome-4.5.0/css/font-awesome.min.css" %}'>    
+
 
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" type='text/css'>
     <link rel="manifest" href="{% static 'json/manifest.json' %}">
@@ -44,43 +53,70 @@
                     for (var i=0; i<myRoute.legs[0].steps.length; i++) {
                       txtDir += myRoute.legs[0].steps[i].instructions+"<br />";
                     }
-                    document.getElementById('directions').innerHTML = txtDir;
+                    // document.getElementById('directions').innerHTML = txtDir;
                   }
                 });
               }
     </script>
-
-
 <script type="text/javascript">
-// var a1='0';
-// var a2='0';
-function func(a){
-            // alert("hello1")
- 
+    function func2(a){
+
             var directionsService = new google.maps.DirectionsService();
-var b='{{c}} India';
+var b='{{t}} India';
             var request = {
               origin      : a, // a city, full address, landmark etc
-              destination : '{{c}} India',
+              destination : '{{t}} India',
               travelMode  : google.maps.DirectionsTravelMode.DRIVING
             };
-            func1(a,b)
             directionsService.route(request, function(response, status) {
               if ( status == google.maps.DirectionsStatus.OK ) {
-                var distance1 = (response.routes[0].legs[0].distance.value)/1000
-                var min1 = (Number((distance1/60)%1)*60).toFixed(0)
-                document.getElementById('Dist1').innerHTML=(Number(distance1.toFixed(2))+' km' ); // the distance in metres
-                document.getElementById('time1').innerHTML=(Math.floor(distance1/60)+' hr. '+min1+' min.' );
+                window.distance2 = (response.routes[0].legs[0].distance.value)/1000
+                // var min1 = (Number((distance1/60)%1)*60).toFixed(0)
+                // document.getElementById('Dist1').innerHTML=(Number(distance1.toFixed(2))+' km' ); // the distance in metres
+                // document.getElementById('time1').innerHTML=(Math.floor(distance1/60)+' hr. '+min1+' min.' );
               }
               else {
                 // oops, there's no route between these two locations
                 // every time this happens, a kitten dies
                 // so please, ensure your address is formatted properly
               }
+// return window.distance2; 
+
             });
         // break;
-return request; 
-            }
+           return window.distance2; }
+    
+// var a1='0';
+// var a2='0';
+function func(a){
+            // alert("hello1")
+ 
+            var directionsService = new google.maps.DirectionsService();
+var b='{{t}} India';
+            var request = {
+              origin      : a, // a city, full address, landmark etc
+              destination : '{{t}} India',
+              travelMode  : google.maps.DirectionsTravelMode.DRIVING
+            };
+            func1(a,b);
+            directionsService.route(request, function(response, status) {
+              if ( status == google.maps.DirectionsStatus.OK ) {
+                window.distance1 = (response.routes[0].legs[0].distance.value)/1000
+                var min1 = (Number((distance1/60)%1)*60).toFixed(0)
+                document.getElementById('Dist1').innerHTML=(Number(distance1.toFixed(2))+' km' ); // the distance in metres
+                document.getElementById('time1').innerHTML=(Math.floor(distance1/60)+' hr. '+min1+' min. remaining' );
+              }
+              else {
+                // oops, there's no route between these two locations
+                // every time this happens, a kitten dies
+                // so please, ensure your address is formatted properly
+              }
+
+
+          // return distance1; 
+            });
+        // break;
+            return window.distance1;}
 
 
 if (navigator.geolocation) {
@@ -94,12 +130,27 @@ if (navigator.geolocation) {
         var a1=p.coords.latitude;
         var a2= p.coords.longitude;
 a=a1+','+a2;
-func(a);
-        google.maps.event.addListener(marker, "click", function (e) {
-            var infoWindow = new google.maps.InfoWindow();
-            infoWindow.setContent(marker.title);
-            infoWindow.open(map, marker);
-        });
+
+func('Ambur India');
+// console.log(desti);
+func2('{{f}}');
+
+function f(){
+    a = Math.floor(((window.distance2 - window.distance1)/window.distance2)*100);
+    document.getElementById('percent1').innerHTML = a+'%';
+    // document.getElementById('prog').data-percent = a;
+    document.getElementById('prog').style.width = a+'%';
+
+    }
+    setTimeout(function() {
+        f();
+    }, 10000);
+// document.getElementById('Dist1').onload = f();
+        // google.maps.event.addListener(marker, "click", function (e) {
+        //     var infoWindow = new google.maps.InfoWindow();
+        //     infoWindow.setContent(marker.title);
+        //     infoWindow.open(map, marker);
+        // });
     });
 } else {
     alert('Geo Location feature is not supported in this browser.');
@@ -122,34 +173,21 @@ func(a);
         <h1 class="header_title" id="Bus_title"> Track your ride</h1>
         <button title="Refresh" id="butRefresh" class="headerButton" aria-label="Refresh" onclick="butRefresh()"></button>
     </header>
-    <main>
-        <div id="mainDiv" style= "border-style: solid; border-width: 2px; margin-left:10%; margin-right:10%; margin-top:30px;">
-            <div id="distance">
-                <h2>
-                    Distance travelled:
-                </h2>
-             <!--    <span>
-                        <div class="progress-circle p10" style="margin-left:10%;">
-                                <span>10%</span>
-                                <div class="left-half-clipper">
-                                  <div class="first50-bar"></div>
-                                  <div class="value-bar"></div>
-                                </div>
-                              </div>
-                </span> -->
-                <h2  id="Dist1" style="margin-left:10%;"></h2>
-                    <p style="display: no ne;" id="Dist2"></p>
-                
+    <main id="container">
+        <div id="mainDiv">
+            <h2  id="Dist1" style="text-align: center;"> </h2>
+            <div class="cssProgress">
+                <div class="progress1">
+                    <div class="cssProgress-bar cssProgress-active" data-percent="75" id="prog" style="width: 0%;">
+                        <span class="cssProgress-label" id="percent1">0%</span>
+                    </div>
+                </div>
             </div>
-            <div id="reachDest">
-                <h2 style="text-align:center;">
-                    You'll reach your destination in: <br><br>
-                    <span id="time1"></span>
-            </div>
+            <h2 id="time1" style="text-align: center;"> </h2>
         </div>
+        <br><br>
         <div>
-                <h3 style= " margin-left:20%;">Your Ride</h3>
-                <div id="map_canvas" style="width:500px;height:500px; margin-left:35%;"></div>
+                <div id="map_canvas" style="width:100%;height:500px;"></div>
         </div>
     </main>
     </div>

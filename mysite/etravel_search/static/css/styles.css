@@ -227,7 +227,11 @@ input[type=submit]:hover {
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome and Opera */
   }
-#distance{
+
+#mainDiv{
+    padding: auto;
+}
+/*#distance{
     display: inline-block;
     margin-left: 20%;
     margin-bottom: 10%;
@@ -242,7 +246,7 @@ input[type=submit]:hover {
     margin-top: 5%;
     margin-left: 40px;
     
-}
+}*/
 #map {
     height: 400px;
     width: 70%;
