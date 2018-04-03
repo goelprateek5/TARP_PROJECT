@@ -13,4 +13,5 @@ urlpatterns=[
     content_type='application/javascript',
 )), name='service-worker.js'),
     
+    
 ]

@@ -17,6 +17,8 @@ function validateForm(){
         return false;
     }
     document.getElementById('buslist').style.display=block;
+    // document.getElementById('container').style.height='auto';
+    // alert("done");
 }
 
 

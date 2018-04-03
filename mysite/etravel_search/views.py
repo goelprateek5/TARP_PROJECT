@@ -4,10 +4,12 @@ from django.template import loader
 from .models import Bus,Passenger,User_Journey
 from rfid.models import Cost
 from datetime import datetime
+import time
 
 
-
-
+# def callme():
+#     time.sleep(5)
+#     return redirect('127.0.0.1:8000/')
 
 
 def index(request):
@@ -50,6 +52,7 @@ def confirm(request):
         'S':S,
         'R':R,
         'alert':alert,
+        # 'callme':callme(),
     }
 
     User=User_Journey()

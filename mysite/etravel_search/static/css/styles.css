@@ -42,9 +42,9 @@ html { overflow-y: scroll; }
     -webkit-align-content: stretch;
         -ms-flex-line-pack: stretch;
             align-content: stretch;
-    background: url('bg-min.jpg');
+   /* background: url('bg-min.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;*/
     
 }
   
@@ -117,7 +117,7 @@ html { overflow-y: scroll; }
             }
 
 .main {
-    padding-top: 60px;
+    /*padding-top: 60px;*/
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
@@ -134,14 +134,15 @@ html { overflow-y: scroll; }
     background-size: cover;
 }
 #container {
-    margin: auto;
+    margin: 0px auto;
     width: 75%;
-    height: 500px;
+    height: auto;
     padding: 5%;
-    margin-top: 5%;
+    background: #eff0f1;
     /*border:2px solid rgb(16, 0, 61);*/
-    
+    /*clear: both;*/
 }
+
 input[type=text],[type=date]{
     padding: 7px;
     float: right;
@@ -161,7 +162,7 @@ label {
 
 }
 input[type=submit] {
-    background-color: #4CAF50;
+    background-color: #3F51B5;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -171,10 +172,10 @@ input[type=submit] {
     width: 25%;
     display: flex;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #152269;
 }
 .sidenav {
     height: 100%;
