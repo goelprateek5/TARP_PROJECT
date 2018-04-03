@@ -31,7 +31,8 @@
     <style>
 
             a { 
-                color: inherit; 
+                color :#444;
+    
                 text-decoration: none;
             
             } 
@@ -57,9 +58,9 @@
         <button id="butRefresh" class="headerButton" aria-label="Refresh" onclick="butRefresh()" type="button"></button>
     </header>
     <main class='main'>
-        <div id="container"style="color:rgb(235, 232, 192);">
+        <div id="container">
             {% if m %} 
-            <h2>Songs!</h2>
+            <h1><center>Songs</center></h1><br><br>
                 <ul>
                     {% for music in m %}
 
@@ -71,16 +72,18 @@
             {% else %}
                 <h3>No albums found</h3>
             {% endif %}
-        </div>  
-        <center>   
-        <div style="height:0%;width:0%;background-color:black;display:none;margin-top:2%;" id="show">
+        <center>  
+        <br><br>
+        <br> 
+        <div style="height:0%;width:0%;background-color:#eff0f1;display:none;margin-top:2%;" id="show">
             <audio height="100%" width="100%" preload="none" controls id="audioPlayer">
                 <source id="myaudio" type="audio/mp3">
                 </audio>
         </div>
         </center>
                     
-                
+                     </div>  
+   
             
     </main>
 

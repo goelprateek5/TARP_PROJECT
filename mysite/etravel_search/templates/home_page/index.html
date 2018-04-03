@@ -15,6 +15,7 @@
         var val=document.getElementById(id).value;
         document.getElementById("busid").value=val;
     }
+   
 
     </script>
     <style>
@@ -67,7 +68,7 @@
                     {% if G %}
                     <br><br>
                     <h3>Select a ride!</h3>
-                    <table  align="center">
+                    <table  id= "table" align="center">
                         <tr>
                             <th>Bus Name</th>
                             <th>Bus Type</th>
@@ -95,9 +96,9 @@
                         {% if G|length != 0 %}
                         <center>
                             <div>
-                        <form method="POST" action="confirmbook" id="bookticket">
+                        <form method="POST" action="confirmbook" id="bookticket" >
                             <input type="Text" name="busid" id="busid" style="display:none;">
-                            <input type="text" name="rfid" style="float:left;width:50%;margin-left:10%;" placeholder="Enter your RFID">
+                            <input type="text" name="rfid" style="float:left;width:50%;margin-left:10%;background: #eff0f1;" placeholder="Enter your RFID">
                             <input type="submit" value="Book Now" name="{{i.id}}" style="width:17%;"/>
                             <br>
                         </form>
@@ -111,4 +112,10 @@
         </div>
     </main>    
 </body>
+<!-- <script type="text/javascript">
+     function f() {
+        document.getElementById('container').style.height='auto';
+    }
+   document.getElementById('bookticket').onload = f();
+</script> -->
 </html>

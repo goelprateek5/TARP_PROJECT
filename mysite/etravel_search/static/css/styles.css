@@ -136,7 +136,7 @@ html { overflow-y: scroll; }
 #container {
     margin: 0px auto;
     width: 75%;
-    height: auto;
+    height: 100%;
     padding: 5%;
     background: #eff0f1;
     /*border:2px solid rgb(16, 0, 61);*/

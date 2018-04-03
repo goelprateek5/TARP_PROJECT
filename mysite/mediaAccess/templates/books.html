@@ -25,7 +25,8 @@
     <style>
 
             a { 
-                color: inherit; 
+                color :#444;
+    
                 text-decoration: none;
             
             } 
@@ -51,9 +52,9 @@
         <button id="butRefresh" class="headerButton" aria-label="Refresh" onclick="butRefresh()" type="button"></button>
     </header>
     <main class='main'>
-        <div id="container" style="color:rgb(235, 232, 192);">
+        <div id="container" >
             {% if b %} 
-            <h2>Books!</h2>
+            <h1><center>Books</center></h1>
                 <ul>
                     {% for books in b %}
 
@@ -65,13 +66,13 @@
             {% else %}
                 <h3>No Books found</h3>
             {% endif %}
-        </div>  
         <center>   
-        <div style="height:0%;width:0%;background-color:black;display:inline-block;margin-top:2%;" id="show">
+        <div style="height:0%;width:0%;background-color:#eff0f1;display:inline-block;margin-top:2%;" id="show">
             <embed id="pdf" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
         </div>
         </center>
-                    
+                      </div>  
+      
                 
             
     </main>
