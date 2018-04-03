@@ -67,7 +67,10 @@ var b='{{c}} India';
             func1(a,b)
             directionsService.route(request, function(response, status) {
               if ( status == google.maps.DirectionsStatus.OK ) {
-                document.getElementById('Dist1').innerHTML=((response.routes[0].legs[0].distance.value)/1000+' km' ); // the distance in metres
+                var distance1 = (response.routes[0].legs[0].distance.value)/1000
+                var min1 = (Number((distance1/60)%1)*60).toFixed(0)
+                document.getElementById('Dist1').innerHTML=(Number(distance1.toFixed(2))+' km' ); // the distance in metres
+                document.getElementById('time1').innerHTML=(Math.floor(distance1/60)+' hr. '+min1+' min.' );
               }
               else {
                 // oops, there's no route between these two locations
@@ -125,7 +128,7 @@ func(a);
                 <h2>
                     Distance travelled:
                 </h2>
-                <span>
+             <!--    <span>
                         <div class="progress-circle p10" style="margin-left:10%;">
                                 <span>10%</span>
                                 <div class="left-half-clipper">
@@ -133,7 +136,7 @@ func(a);
                                   <div class="value-bar"></div>
                                 </div>
                               </div>
-                </span>
+                </span> -->
                 <h2  id="Dist1" style="margin-left:10%;"></h2>
                     <p style="display: no ne;" id="Dist2"></p>
                 
@@ -141,7 +144,7 @@ func(a);
             <div id="reachDest">
                 <h2 style="text-align:center;">
                     You'll reach your destination in: <br><br>
-                    3.5 hrs
+                    <span id="time1"></span>
             </div>
         </div>
         <div>
