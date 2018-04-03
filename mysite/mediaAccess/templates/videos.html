@@ -17,10 +17,12 @@
             var v=document.getElementById("videoPlayer")
             var s=document.getElementById("myvideo");
             var d=document.getElementById("show");
-            document.getElementById('container').style.height='auto';
-            d.style.height="75%";
-            d.style.width="75%";
+            // document.getElementById('container').style.height='auto';
+            d.style.height="100%";
+            d.style.width="100%";
             s.src=path;
+            v.style.height="100%";
+            v.style.width="100%";
             v.pause();
             v.currentTime=0;
             v.load();
@@ -74,7 +76,7 @@ a {
        
         <center>   
         <div style="height:0%;width:0%;background-color:#eff0f1;display:inline-block;margin-top:2%;" id="show">
-            <video height="100%" width="100%" preload="none" controls id="videoPlayer">
+            <video height="0%" width="0%" preload="none" controls id="videoPlayer">
                 <source id="myvideo" type="video/mp4">
             </video>
         </div>
